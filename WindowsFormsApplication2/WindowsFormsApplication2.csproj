@@ -63,63 +63,63 @@
     <Compile Include="Comunes\ListConnection.cs" />
     <Compile Include="Comunes\DBConnection.cs" />
     <Compile Include="Comunes\QueryResult.cs" />
-    <Compile Include="ConfigurationForm.cs">
+    <Compile Include="Forms\ConfigurationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfigurationForm.Designer.cs">
+    <Compile Include="Forms\ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Create.cs">
+    <Compile Include="Forms\Create.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Create.Designer.cs">
+    <Compile Include="Forms\Create.Designer.cs">
       <DependentUpon>Create.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteWindow.cs">
+    <Compile Include="Forms\DeleteWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteWindow.Designer.cs">
+    <Compile Include="Forms\DeleteWindow.Designer.cs">
       <DependentUpon>DeleteWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="Forms\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="List.cs">
+    <Compile Include="Forms\List.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="List.Designer.cs">
+    <Compile Include="Forms\List.Designer.cs">
       <DependentUpon>List.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableShowForm.cs">
+    <Compile Include="Forms\TableShowForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableShowForm.Designer.cs">
+    <Compile Include="Forms\TableShowForm.Designer.cs">
       <DependentUpon>TableShowForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateWindow.cs">
+    <Compile Include="Forms\UpdateWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateWindow.Designer.cs">
+    <Compile Include="Forms\UpdateWindow.Designer.cs">
       <DependentUpon>UpdateWindow.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ConfigurationForm.resx">
+    <EmbeddedResource Include="Forms\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create.resx">
+    <EmbeddedResource Include="Forms\Create.resx">
       <DependentUpon>Create.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteWindow.resx">
+    <EmbeddedResource Include="Forms\DeleteWindow.resx">
       <DependentUpon>DeleteWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
+    <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="List.resx">
+    <EmbeddedResource Include="Forms\List.resx">
       <DependentUpon>List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -127,10 +127,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TableShowForm.resx">
+    <EmbeddedResource Include="Forms\TableShowForm.resx">
       <DependentUpon>TableShowForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateWindow.resx">
+    <EmbeddedResource Include="Forms\UpdateWindow.resx">
       <DependentUpon>UpdateWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
