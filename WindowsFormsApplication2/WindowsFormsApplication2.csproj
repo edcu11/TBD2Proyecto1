@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="Comunes\ConnectionStorage.cs" />
     <Compile Include="Comunes\ConnectionStringConfiguration.cs" />
+    <Compile Include="Comunes\DBManager.cs" />
+    <Compile Include="Comunes\DeleteQueries.cs" />
     <Compile Include="Comunes\ListConnection.cs" />
     <Compile Include="Comunes\DBConnection.cs" />
     <Compile Include="Comunes\QueryResult.cs" />
@@ -69,17 +71,11 @@
     <Compile Include="Forms\ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Create.cs">
+    <Compile Include="Forms\DeleteObjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Create.Designer.cs">
-      <DependentUpon>Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\DeleteWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DeleteWindow.Designer.cs">
-      <DependentUpon>DeleteWindow.cs</DependentUpon>
+    <Compile Include="Forms\DeleteObjectForm.Designer.cs">
+      <DependentUpon>DeleteObjectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
@@ -101,20 +97,11 @@
     <Compile Include="Forms\TableShowForm.Designer.cs">
       <DependentUpon>TableShowForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UpdateWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UpdateWindow.Designer.cs">
-      <DependentUpon>UpdateWindow.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Create.resx">
-      <DependentUpon>Create.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DeleteWindow.resx">
-      <DependentUpon>DeleteWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DeleteObjectForm.resx">
+      <DependentUpon>DeleteObjectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -129,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TableShowForm.resx">
       <DependentUpon>TableShowForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UpdateWindow.resx">
-      <DependentUpon>UpdateWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -181,6 +165,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Settings - 091.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings - 09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings - 092.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings - 093.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

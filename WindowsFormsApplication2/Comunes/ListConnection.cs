@@ -9,9 +9,9 @@ namespace WindowsFormsApplication2.Comunes
     public class ListConnection
     {
         DBConnection connection;
-        public ListConnection(string connectionString)
+        public ListConnection(DBConnection paramConn)
         {
-            connection = new DBConnection(connectionString);
+            connection = paramConn;
         }
 
 
@@ -28,22 +28,28 @@ namespace WindowsFormsApplication2.Comunes
 
         public QueryResult GetDBIndexes()
         {
-            string sqlCommand = @"SELECT name as Name, object_id, type_desc 
-                                FROM sys.objects
-                                WHERE type_desc LIKE '%CONSTRAINT'";
+            string sqlCommand = @"Select distinct o.name as Name, t.name as TableName, o.object_id, o.type_desc as Type
+                                FROM sys.objects o, sys.index_columns i
+                                JOIN Sys.tables t ON t.object_id = i.object_id
+                                WHERE 
+	                                o.type_desc LIKE '%CONSTRAINT'";
 
-            return connection.ExecuteCommand(sqlCommand, new string[] { "object_Id", "Name", "Type_Desc" });
+            return connection.ExecuteCommand(sqlCommand, new string[] { "Name", "TableName", "object_id", "Type" });
 
         }
 
         public QueryResult GetDBProcedures()
         {
-            string sqlCommand = @"SELECT name, type
-                                FROM dbo.sysobjects
-                                where type = 'P' or type = 'FN'
-                                ORDER BY type, name";
+            string sqlCommand = @"SELECT name, 
+	                            CASE type 
+		                            WHEN 'P' THEN 'Procedure'
+		                            ELSE 'Function'
+	                            END AS Type
+                            FROM dbo.sysobjects
+                            where type = 'P' or type = 'FN'
+                            ORDER BY type, name";
 
-            return connection.ExecuteCommand(sqlCommand, new string[] { "name", "type" });
+            return connection.ExecuteCommand(sqlCommand, new string[] { "name", "Type" });
         }
 
         public QueryResult GetDBTriggers()
@@ -64,7 +70,7 @@ namespace WindowsFormsApplication2.Comunes
                                 where type = 'TR'
                                 ORDER BY OBJECT_NAME(parent_object_id)";
 
-            return connection.ExecuteCommand(sqlCommand, new string[] { "table_name", "trigger_name", "isinsert" , "isupdate" ,
+            return connection.ExecuteCommand(sqlCommand, new string[] { "trigger_name","table_name", "isinsert" , "isupdate" ,
                                                                         "isdelete", "isinsteadof", "Enabled" });
         }
 
@@ -77,7 +83,7 @@ namespace WindowsFormsApplication2.Comunes
                                 INNER JOIN INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE c 
                                 ON cc.CONSTRAINT_NAME = c.CONSTRAINT_NAME ";
 
-            return connection.ExecuteCommand(sqlCommand, new string[] { "TABLE_NAME", "COLUMN_NAME", "CONSTRAINT_NAME" });
+            return connection.ExecuteCommand(sqlCommand, new string[] { "CONSTRAINT_NAME", "TABLE_NAME", "COLUMN_NAME" });
         }
 
         public QueryResult GetDBViews()

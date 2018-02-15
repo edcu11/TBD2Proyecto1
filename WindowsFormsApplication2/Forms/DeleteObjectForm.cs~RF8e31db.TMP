@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WindowsFormsApplication2.Comunes;
+
+namespace WindowsFormsApplication2.Forms
+{
+    public partial class DeleteObjectForm : MetroFramework.Forms.MetroForm
+    {
+        DBManager manager;
+        public DeleteObjectForm(DBManager man)
+        {
+            InitializeComponent();
+            manager = man;
+        }
+
+        private void DeleteObjectForm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

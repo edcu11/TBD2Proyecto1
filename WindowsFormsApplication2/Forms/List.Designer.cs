@@ -28,21 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ShowTables = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
             this.metroTile7 = new MetroFramework.Controls.MetroTile();
             this.QRGrid = new MetroFramework.Controls.MetroListView();
-            this.BackHome = new MetroFramework.Controls.MetroLink();
+            this.tableCM = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.createCMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteCMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateCMI = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowingLabel = new MetroFramework.Controls.MetroLabel();
             this.triggersTile = new MetroFramework.Controls.MetroTile();
+            this.BackHome = new MetroFramework.Controls.MetroLink();
+            this.tableCM.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShowTables
             // 
             this.ShowTables.ActiveControl = null;
-            this.ShowTables.Location = new System.Drawing.Point(23, 108);
+            this.ShowTables.Location = new System.Drawing.Point(13, 223);
             this.ShowTables.Name = "ShowTables";
             this.ShowTables.Size = new System.Drawing.Size(175, 40);
             this.ShowTables.TabIndex = 3;
@@ -54,7 +60,7 @@
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(23, 200);
+            this.metroTile3.Location = new System.Drawing.Point(13, 315);
             this.metroTile3.Name = "metroTile3";
             this.metroTile3.Size = new System.Drawing.Size(175, 40);
             this.metroTile3.TabIndex = 5;
@@ -66,7 +72,7 @@
             // metroTile4
             // 
             this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(23, 154);
+            this.metroTile4.Location = new System.Drawing.Point(13, 269);
             this.metroTile4.Name = "metroTile4";
             this.metroTile4.Size = new System.Drawing.Size(175, 40);
             this.metroTile4.TabIndex = 6;
@@ -78,7 +84,7 @@
             // metroTile5
             // 
             this.metroTile5.ActiveControl = null;
-            this.metroTile5.Location = new System.Drawing.Point(23, 338);
+            this.metroTile5.Location = new System.Drawing.Point(13, 453);
             this.metroTile5.Name = "metroTile5";
             this.metroTile5.Size = new System.Drawing.Size(175, 40);
             this.metroTile5.TabIndex = 7;
@@ -90,7 +96,7 @@
             // metroTile7
             // 
             this.metroTile7.ActiveControl = null;
-            this.metroTile7.Location = new System.Drawing.Point(23, 292);
+            this.metroTile7.Location = new System.Drawing.Point(13, 407);
             this.metroTile7.Name = "metroTile7";
             this.metroTile7.Size = new System.Drawing.Size(175, 40);
             this.metroTile7.TabIndex = 9;
@@ -103,38 +109,56 @@
             // 
             this.QRGrid.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.QRGrid.AllowColumnReorder = true;
+            this.QRGrid.ContextMenuStrip = this.tableCM;
             this.QRGrid.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.QRGrid.FullRowSelect = true;
             this.QRGrid.GridLines = true;
-            this.QRGrid.Location = new System.Drawing.Point(262, 108);
+            this.QRGrid.Location = new System.Drawing.Point(204, 108);
             this.QRGrid.Name = "QRGrid";
             this.QRGrid.OwnerDraw = true;
-            this.QRGrid.Size = new System.Drawing.Size(469, 270);
+            this.QRGrid.Size = new System.Drawing.Size(977, 603);
             this.QRGrid.TabIndex = 10;
             this.QRGrid.UseCompatibleStateImageBehavior = false;
             this.QRGrid.UseCustomBackColor = true;
             this.QRGrid.UseSelectable = true;
             this.QRGrid.UseStyleColors = true;
             this.QRGrid.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.QRGrid_ItemSelectionChanged);
+            this.QRGrid.SelectedIndexChanged += new System.EventHandler(this.QRGrid_SelectedIndexChanged);
             this.QRGrid.DoubleClick += new System.EventHandler(this.QRGrid_DoubleClick);
             // 
-            // BackHome
+            // tableCM
             // 
-            this.BackHome.Image = global::WindowsFormsApplication2.Properties.Resources.Navigation_Right1;
-            this.BackHome.ImageSize = 42;
-            this.BackHome.Location = new System.Drawing.Point(700, 16);
-            this.BackHome.Name = "BackHome";
-            this.BackHome.Size = new System.Drawing.Size(31, 35);
-            this.BackHome.TabIndex = 2;
-            this.BackHome.UseCustomBackColor = true;
-            this.BackHome.UseCustomForeColor = true;
-            this.BackHome.UseSelectable = true;
-            this.BackHome.UseStyleColors = true;
-            this.BackHome.Click += new System.EventHandler(this.BackHome_Click);
+            this.tableCM.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createCMI,
+            this.deleteCMI,
+            this.updateCMI});
+            this.tableCM.Name = "tableCM";
+            this.tableCM.Size = new System.Drawing.Size(144, 70);
+            this.tableCM.Opening += new System.ComponentModel.CancelEventHandler(this.tableCM_Opening);
+            // 
+            // createCMI
+            // 
+            this.createCMI.Name = "createCMI";
+            this.createCMI.Size = new System.Drawing.Size(143, 22);
+            this.createCMI.Text = "Create Table";
+            // 
+            // deleteCMI
+            // 
+            this.deleteCMI.Name = "deleteCMI";
+            this.deleteCMI.Size = new System.Drawing.Size(143, 22);
+            this.deleteCMI.Text = "Delete Table";
+            this.deleteCMI.Click += new System.EventHandler(this.deleteCMI_Click);
+            // 
+            // updateCMI
+            // 
+            this.updateCMI.Name = "updateCMI";
+            this.updateCMI.Size = new System.Drawing.Size(143, 22);
+            this.updateCMI.Text = "Update Table";
             // 
             // ShowingLabel
             // 
             this.ShowingLabel.AutoSize = true;
+            this.ShowingLabel.ContextMenuStrip = this.tableCM;
             this.ShowingLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.ShowingLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.ShowingLabel.Location = new System.Drawing.Point(262, 83);
@@ -149,7 +173,7 @@
             // triggersTile
             // 
             this.triggersTile.ActiveControl = null;
-            this.triggersTile.Location = new System.Drawing.Point(23, 246);
+            this.triggersTile.Location = new System.Drawing.Point(13, 361);
             this.triggersTile.Name = "triggersTile";
             this.triggersTile.Size = new System.Drawing.Size(175, 40);
             this.triggersTile.TabIndex = 12;
@@ -158,11 +182,25 @@
             this.triggersTile.UseSelectable = true;
             this.triggersTile.Click += new System.EventHandler(this.triggersTile_Click);
             // 
+            // BackHome
+            // 
+            this.BackHome.Image = global::WindowsFormsApplication2.Properties.Resources.Settings___093;
+            this.BackHome.ImageSize = 42;
+            this.BackHome.Location = new System.Drawing.Point(141, 654);
+            this.BackHome.Name = "BackHome";
+            this.BackHome.Size = new System.Drawing.Size(47, 47);
+            this.BackHome.TabIndex = 2;
+            this.BackHome.UseCustomBackColor = true;
+            this.BackHome.UseCustomForeColor = true;
+            this.BackHome.UseSelectable = true;
+            this.BackHome.UseStyleColors = true;
+            this.BackHome.Click += new System.EventHandler(this.BackHome_Click_1);
+            // 
             // List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 500);
+            this.ClientSize = new System.Drawing.Size(1326, 811);
             this.Controls.Add(this.triggersTile);
             this.Controls.Add(this.ShowingLabel);
             this.Controls.Add(this.QRGrid);
@@ -176,9 +214,9 @@
             this.KeyPreview = true;
             this.Name = "List";
             this.Text = "List";
-            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Right;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.List_Load);
+            this.tableCM.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +233,9 @@
         private MetroFramework.Controls.MetroListView QRGrid;
         private MetroFramework.Controls.MetroLabel ShowingLabel;
         private MetroFramework.Controls.MetroTile triggersTile;
+        private MetroFramework.Controls.MetroContextMenu tableCM;
+        private System.Windows.Forms.ToolStripMenuItem createCMI;
+        private System.Windows.Forms.ToolStripMenuItem deleteCMI;
+        private System.Windows.Forms.ToolStripMenuItem updateCMI;
     }
 }

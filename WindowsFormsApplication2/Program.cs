@@ -16,7 +16,7 @@ namespace WindowsFormsApplication2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var mainFrame = new Home();
+            var mainFrame = new ConfigurationForm();
             Application.Run(mainFrame);
         }
     }

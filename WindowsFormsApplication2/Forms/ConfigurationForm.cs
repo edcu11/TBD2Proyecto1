@@ -13,30 +13,35 @@ namespace WindowsFormsApplication2
 {
     public partial class ConfigurationForm : MetroFramework.Forms.MetroForm
     {
-        private Home home;
-        private DBConnection dbConnector;
+        public  DBConnection dbConnector;
         private ConnectionStringConfiguration connectionData;
         private ConnectionStorage cStorage;
 
-        public ConfigurationForm(Home homep)
+        public ConfigurationForm()
         {
-            this.home = homep;
             connectionData = new ConnectionStringConfiguration();
             InitializeComponent();
         }
-
 
         private void ConfigurationForm_Load(object sender, EventArgs e)
         {
             cStorage = new ConnectionStorage();
             cStorage.LoadConfigurations();
-
             ShowStoredConfs();
         }
 
         private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
         }
+
+        private void StartForm(Form form)
+        {
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
+            this.Activate();
+        }
+
 
         #region Manual Binding
 
@@ -78,13 +83,14 @@ namespace WindowsFormsApplication2
 
         private void SetConfString()
         {
-            home.myConnectionString = connectionData.GetConfString();
-            dbConnector = new DBConnection(home.myConnectionString);
+            dbConnector = new DBConnection(connectionData.GetConfString());
 
             if (dbConnector.IsConnectionValid())
             {
                 MessageBox.Show("Success! Connection Saved!");
                 cStorage.AddConnection(connectionData);
+                var listForm = new List(this);
+                StartForm(listForm);
                 ReloadConfigurations();
             }
             else

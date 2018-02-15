@@ -19,10 +19,10 @@ namespace WindowsFormsApplication2
         public SqlDataAdapter Adapter;
         public DataTable Table;
 
-        public TableShowForm(string connectionString, string tableN)
+        public TableShowForm(DBConnection conn, string tableN)
         {
             InitializeComponent();
-            connection = new DBConnection(connectionString);
+            connection = conn;
             tableName = tableN;
         }
 

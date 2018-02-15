@@ -8,7 +8,6 @@ namespace WindowsFormsApplication2.Comunes
 {
     public class ConnectionStringConfiguration
     {
-        private string v;
 
         public string ServerName { get; set; }
         public string DatabaseName { get; set; }

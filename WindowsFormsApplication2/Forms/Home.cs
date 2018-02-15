@@ -40,12 +40,10 @@ namespace WindowsFormsApplication2
 
         private void CreateTile_Click(object sender, EventArgs e)
         {
-            StartForm(new Create(this), false);
         }
 
         private void ListTile_Click(object sender, EventArgs e)
         {
-            StartForm(new List(this), false);
         }
 
 
@@ -56,17 +54,14 @@ namespace WindowsFormsApplication2
 
         private void UpdateBD_Click(object sender, EventArgs e)
         {
-            StartForm(new UpdateWindow(this), false);
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            StartForm(new Delete(this), false);
         }
 
         private void ConfLink_Click(object sender, EventArgs e)
         {
-            StartForm(new ConfigurationForm(this), true);
             //form.Show();
             //this.Hide();
         }

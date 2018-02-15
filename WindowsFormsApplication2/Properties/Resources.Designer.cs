@@ -133,9 +133,39 @@ namespace WindowsFormsApplication2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Settings___09 {
+            get {
+                object obj = ResourceManager.GetObject("Settings - 09", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Settings___091 {
             get {
                 object obj = ResourceManager.GetObject("Settings - 091", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Settings___092 {
+            get {
+                object obj = ResourceManager.GetObject("Settings - 092", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Settings___093 {
+            get {
+                object obj = ResourceManager.GetObject("Settings - 093", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
