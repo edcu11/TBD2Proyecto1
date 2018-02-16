@@ -14,3 +14,8 @@ C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\Wi
 C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.ConfigurationForm.resources
 C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.TableShowForm.resources
 C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Forms.DeleteObjectForm.resources
+C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Forms.CU_Forms.TableCU.resources
+C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Forms.CU_Forms.TriggerCU.resources
+C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Forms.CU_Forms.CheckCU.resources
+C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Forms.CU_Forms.ProcedureCU.resources
+C:\Users\Edgar\documents\visual studio 2015\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Forms.CU_Forms.FunctionCU.resources

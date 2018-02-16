@@ -13,9 +13,19 @@ namespace WindowsFormsApplication2.Comunes
         {
             connection = paramConn;
         }
-
-
         
+        public QueryResult GetTableColumn(string tableName)
+        {
+            string sqlCommand = @"SELECT *
+                                FROM INFORMATION_SCHEMA.COLUMNS
+                                WHERE TABLE_NAME = '[tableName]'";
+
+            sqlCommand = sqlCommand.Replace("[tableName]", tableName);
+
+            return connection.ExecuteCommand(sqlCommand, new string[] { "Column_Name"});
+
+        }
+
         public QueryResult GetDBTables()
         {
             
@@ -32,7 +42,7 @@ namespace WindowsFormsApplication2.Comunes
                                 FROM sys.objects o, sys.index_columns i
                                 JOIN Sys.tables t ON t.object_id = i.object_id
                                 WHERE 
-	                                o.type_desc LIKE '%CONSTRAINT'";
+	                                o.type_desc LIKE '%CONSTRAINT' ";
 
             return connection.ExecuteCommand(sqlCommand, new string[] { "Name", "TableName", "object_id", "Type" });
 

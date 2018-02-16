@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,18 +48,18 @@ namespace WindowsFormsApplication2
             QRGrid.View = View.Details;
             AddColumnsToView(tables.Fields);
             AddResultsRows(tables);
-            UpdateColumnsWidth();
+            UpdateColumnsWidth(QRGrid);
             QRGrid.Update();
         }
 
 
         #region Updating Table
 
-        private void UpdateColumnsWidth()
+        private void UpdateColumnsWidth(MetroListView ListView)
         {
-            for (int i = 0; i < QRGrid.Columns.Count; i++)
+            for (int i = 0; i < ListView.Columns.Count; i++)
             {
-                QRGrid.Columns[i].Width = -2;
+                ListView.Columns[i].Width = -2;
             }
 
         }
@@ -158,6 +159,7 @@ namespace WindowsFormsApplication2
 
         #endregion
 
+      
 
         private string GetSelectedItemID()
         {
@@ -166,14 +168,8 @@ namespace WindowsFormsApplication2
             return RequieresSubField(id, indexes);
         }
 
-        private string RequieresSubField(string id, SelectedIndexCollection indexes)
-        {
-            if (ShowingIndexes() || ShowingChecks() || ShowingProcedures())
-            {
-                id = id + "|" + QRGrid.Items[indexes[0]].SubItems[2].Text;
-            }
-            return id;
-        }
+
+        #region ShowingTextBools
 
         private bool ShowingChecks()
         {
@@ -187,7 +183,31 @@ namespace WindowsFormsApplication2
 
         private bool ShowingTriggers()
         {
-            return ShowingLabel.Text.Equals("TRIGGERS");
+            return ShowingLabel.Text.Equals("Triggers");
+        }
+
+        private bool ShowingProcedures()
+        {
+            return ShowingLabel.Text.Equals("Procedures");
+        }
+
+        private bool ShowingViews()
+        {
+            return ShowingLabel.Text.Equals("Views");
+        }
+
+
+        #endregion
+
+        #region Delete
+
+        private string RequieresSubField(string id, SelectedIndexCollection indexes)
+        {
+            if (ShowingIndexes() || ShowingChecks() || ShowingProcedures())
+            {
+                id = id + "|" + QRGrid.Items[indexes[0]].SubItems[2].Text;
+            }
+            return id;
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -203,6 +223,8 @@ namespace WindowsFormsApplication2
                 return;
             }
 
+            RemoveCreateFunBtn();
+
             var showingText = ShowingLabel.Text.ToList();
             showingText.RemoveAt(ShowingLabel.Text.Length - 1);
 
@@ -210,6 +232,34 @@ namespace WindowsFormsApplication2
             {
                 var predicado = tableCM.Items[i].Text.Split(' ');
                 tableCM.Items[i].Text = predicado[0] + " " + new string(showingText.ToArray());
+            }
+
+            if (ShowingProcedures())
+            {
+                if (!tableCM.Items.ContainsKey("Create Function"))
+                {
+                    var addedItem = tableCM.Items.Add("Create Function");
+                    addedItem.Click += StartCreateFunctionForm;
+
+                }
+            }
+        }
+
+        private void StartCreateFunctionForm(object sender, EventArgs e)
+        {
+            var manager = new FunctionManager();
+            StartForm(manager.StartCreateForm(confForm.dbConnector));
+        }
+
+        private void RemoveCreateFunBtn()
+        {
+            foreach (ToolStripItem item in tableCM.Items)
+            {
+                if (item.Text.Equals("Create Function"))
+                {
+                    tableCM.Items.Remove(item);
+                    return;
+                }
             }
         }
 
@@ -226,7 +276,7 @@ namespace WindowsFormsApplication2
         private void deleteCMI_Click(object sender, EventArgs e)
         {
             var id = GetSelectedItemID();
-            DBManager deleteManager = GetDeleteType(id);
+            DBManager deleteManager = GetManagerType(id);
 
             if (deleteManager == null)
             {
@@ -237,7 +287,7 @@ namespace WindowsFormsApplication2
             StartForm(deleteForm);
         }
 
-        private DBManager GetDeleteType(string id)
+        private DBManager GetManagerType(string id)
         {
             if (ShowingLabel.Text.Equals("Tables"))
             {
@@ -274,15 +324,9 @@ namespace WindowsFormsApplication2
             return null;
         }
 
-        private bool ShowingProcedures()
-        {
-            return ShowingLabel.Text.Equals("Procedures");
-        }
 
-        private bool ShowingViews()
-        {
-            return ShowingLabel.Text.Equals("Views");
-        }
+        #endregion
+
 
         private void StartForm(Form form)
         {
@@ -291,5 +335,22 @@ namespace WindowsFormsApplication2
             this.Show();
             this.Activate();
         }
+
+        private ListViewItem.ListViewSubItemCollection GetSelectedRowItems()
+        {
+            var indexes = QRGrid.SelectedIndices;
+            return QRGrid.Items[indexes[0]].SubItems;
+        }
+
+        private void createCMI_Click(object sender, EventArgs e)
+        {
+            var rowItems = GetSelectedRowItems();
+            var id = GetSelectedItemID();
+            var CreateType = GetManagerType(id);
+            StartForm(CreateType.StartCreateForm(confForm.dbConnector));
+
+        }
+
+
     }
 }

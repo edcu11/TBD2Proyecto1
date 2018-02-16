@@ -141,6 +141,7 @@
             this.createCMI.Name = "createCMI";
             this.createCMI.Size = new System.Drawing.Size(143, 22);
             this.createCMI.Text = "Create Table";
+            this.createCMI.Click += new System.EventHandler(this.createCMI_Click);
             // 
             // deleteCMI
             // 
@@ -186,7 +187,7 @@
             // 
             this.BackHome.Image = global::WindowsFormsApplication2.Properties.Resources.Settings___093;
             this.BackHome.ImageSize = 42;
-            this.BackHome.Location = new System.Drawing.Point(141, 654);
+            this.BackHome.Location = new System.Drawing.Point(1134, 55);
             this.BackHome.Name = "BackHome";
             this.BackHome.Size = new System.Drawing.Size(47, 47);
             this.BackHome.TabIndex = 2;
@@ -200,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1326, 811);
+            this.ClientSize = new System.Drawing.Size(1230, 811);
             this.Controls.Add(this.triggersTile);
             this.Controls.Add(this.ShowingLabel);
             this.Controls.Add(this.QRGrid);

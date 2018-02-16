@@ -65,11 +65,42 @@
     <Compile Include="Comunes\ListConnection.cs" />
     <Compile Include="Comunes\DBConnection.cs" />
     <Compile Include="Comunes\QueryResult.cs" />
+    <Compile Include="Comunes\Tools.cs" />
     <Compile Include="Forms\ConfigurationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CU Forms\CheckCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CU Forms\CheckCU.Designer.cs">
+      <DependentUpon>CheckCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CU Forms\FunctionCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CU Forms\FunctionCU.Designer.cs">
+      <DependentUpon>FunctionCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CU Forms\ProcedureCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CU Forms\ProcedureCU.Designer.cs">
+      <DependentUpon>ProcedureCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CU Forms\TableCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CU Forms\TableCU.Designer.cs">
+      <DependentUpon>TableCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CU Forms\TriggerCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CU Forms\TriggerCU.Designer.cs">
+      <DependentUpon>TriggerCU.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DeleteObjectForm.cs">
       <SubType>Form</SubType>
@@ -99,6 +130,21 @@
     </Compile>
     <EmbeddedResource Include="Forms\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CU Forms\CheckCU.resx">
+      <DependentUpon>CheckCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CU Forms\FunctionCU.resx">
+      <DependentUpon>FunctionCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CU Forms\ProcedureCU.resx">
+      <DependentUpon>ProcedureCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CU Forms\TableCU.resx">
+      <DependentUpon>TableCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CU Forms\TriggerCU.resx">
+      <DependentUpon>TriggerCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeleteObjectForm.resx">
       <DependentUpon>DeleteObjectForm.cs</DependentUpon>
